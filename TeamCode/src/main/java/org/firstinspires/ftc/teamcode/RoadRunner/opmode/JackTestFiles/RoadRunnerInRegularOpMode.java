@@ -69,15 +69,16 @@ public class RoadRunnerInRegularOpMode extends OpMode {
             poseY = detection.rawPose.y;
             poseZ = detection.rawPose.z;
             poseDetected = true;
+            moveUsingID(drive,detection.id, left, right, forward, back);
         }
-        if(moved == false){
+        //if(moved == false){
             //drive.followTrajectory(left);
-            drive.followTrajectory(forward);
+            //drive.followTrajectory(forward);
             //drive.followTrajectory(right);
             //drive.followTrajectory(back);
             //drive.followTrajectory(left);
-            moved = true;
-        }
+            //moved = true;
+        //}
 
     }
 
@@ -124,6 +125,21 @@ public class RoadRunnerInRegularOpMode extends OpMode {
 
     public VisionPortal createVisionPortal(WebcamName webcamName, AprilTagProcessor processor) {
         return VisionPortal.easyCreateWithDefaults(webcamName, processor);
+    }
+    public void moveUsingID(SampleMecanumDrive drive, int id, Trajectory left, Trajectory right, Trajectory forward, Trajectory back){
+        switch (id){
+            case 1:
+            case 2:
+            case 3:
+                drive.followTrajectory(right);
+                break;
+            case 4:
+            case 5:
+            case 6:
+                drive.followTrajectory(left);
+            default:
+                break;
+        }
     }
 }
 
