@@ -164,7 +164,7 @@ public class DriveVelocityPIDTuner extends LinearOpMode {
                 lastKd = MOTOR_VELO_PID.d;
                 lastKf = MOTOR_VELO_PID.f;
             }
-
+            telemetry.addLine("FR Power: " + drive.rightFront.getPower());
             telemetry.update();
         }
     }
