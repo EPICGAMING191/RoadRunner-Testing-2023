@@ -71,14 +71,14 @@ public class RoadRunnerInRegularOpMode extends OpMode {
             poseDetected = true;
             moveUsingID(drive,detection.id, left, right, forward, back);
         }
-        //if(moved == false){
+        if(moved == false){
             //drive.followTrajectory(left);
-            //drive.followTrajectory(forward);
+            drive.followTrajectory(forward);
             //drive.followTrajectory(right);
             //drive.followTrajectory(back);
             //drive.followTrajectory(left);
-            //moved = true;
-        //}
+            moved = true;
+        }
 
     }
 
