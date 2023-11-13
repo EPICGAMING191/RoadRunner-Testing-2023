@@ -141,5 +141,34 @@ public class RoadRunnerInRegularOpMode extends OpMode {
                 break;
         }
     }
+    public Trajectory getNewLeftTrajectory(double distance){
+        drive = new SampleMecanumDrive(hardwareMap);
+        Trajectory new_trajectory = drive.trajectoryBuilder(new Pose2d())
+                .strafeLeft(distance)
+                .build();
+        return new_trajectory;
+    }
+    public Trajectory getNewRightTrajectory(double distance){
+        drive = new SampleMecanumDrive(hardwareMap);
+        Trajectory new_trajectory = drive.trajectoryBuilder(new Pose2d())
+                .strafeRight(distance)
+                .build();
+        return new_trajectory;
+    }
+    public Trajectory getNewForwardTrajectory(double distance){
+        drive = new SampleMecanumDrive(hardwareMap);
+        Trajectory new_trajectory = drive.trajectoryBuilder(new Pose2d())
+                .forward(distance)
+                .build();
+        return new_trajectory;
+    }
+    public Trajectory getNewBackwardTrajectory(double distance){
+        drive = new SampleMecanumDrive(hardwareMap);
+        Trajectory new_trajectory = drive.trajectoryBuilder(new Pose2d())
+                .back(distance)
+                .build();
+        return new_trajectory;
+    }
+
 }
 
